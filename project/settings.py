@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrapform',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,8 +113,8 @@ if ON_PAAS:
             }
         }
 
+        
 else:
-
     DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',  
@@ -124,7 +125,6 @@ else:
                 'PORT':     5432,
             }
     }
-
 
 
 # Internationalization
