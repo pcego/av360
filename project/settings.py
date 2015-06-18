@@ -36,7 +36,7 @@ if ON_PAAS and DEBUG:
 TEMPLATE_DEBUG = True
 
 if ON_PAAS:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = [os.environ['OPENSHIFT_APP_DNS'], socket.gethostname()]
 else:
     ALLOWED_HOSTS = ['*']
 
