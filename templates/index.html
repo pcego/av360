@@ -3,7 +3,7 @@
 
 <html lang="pt-br">
 
-	<body>
+<body>
 {% block main %}
 <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
@@ -14,7 +14,8 @@
       
           <form method="POST" action="." class="form col-md-12 center-block">
             {% csrf_token %}            
-            <div class="form-group">              
+            <div class="form-group">   
+            <br>           
              {{form|bootstrap}}
             </div>            
             <div class="form-group">
@@ -23,7 +24,7 @@
           </form>
       
       <div class="modal-footer">
-          <span class="pull-right"><a href="{% url 'register' %}">Cadastrar</a></span>
+          <span class="pull-right"><a href="{% url 'admin:index' %}">Cadastrar</a></span>
       </div>
   </div>
   </div>
@@ -31,6 +32,6 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-	{% endblock %}
-	</body>
+{% endblock %}
+</body>
 </html>
