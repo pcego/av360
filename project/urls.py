@@ -46,7 +46,7 @@ urlpatterns = [
     	url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
         	'project.views.reset_confirm', name='reset_confirm'),
     	url(r'^reset/$', 'project.views.reset', name='reset'),
-    	url(r'^reset_succeful/$', 'project.views.password_confirmation', name='url_reset_suceful'),
-
-    	url(r'^admin/', include(admin.site.urls)),   
+    	url(r'^reset_succeful/$', 'project.views.password_confirmation', name='url_reset_suceful'),             
+    	#url admin
+             url(r'^admin/', include(admin.site.urls)),   
 ]
