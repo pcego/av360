@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from ava360.models import Departament
+from ava360.models import Departamento
 
 
 class DepartamentForm(ModelForm):
 	class Meta:
-		model = Departament
-		fields = ['description', 'phone']
+		model = Departamento
+		fields = ['descricao', 'ramal']
