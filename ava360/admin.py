@@ -8,6 +8,3 @@ admin.site.register(Cargo)
 admin.site.register(Questao)
 admin.site.register(Questionario)
 admin.site.register(Alternativa)
-
-
-
