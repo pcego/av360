@@ -19,7 +19,7 @@ def departament_create(request, template_name='ava360/departament_form.html'):
 
 
 def departament_update(request, pk, template_name='ava360/departament_form.html'):
-    departament = get_object_or_404(Departament, pk=pk)
+    departament = get_object_or_404(Departamento, pk=pk)
     form = DepartamentForm(request.POST or None, instance=departament)
     if form.is_valid():
         form.save()

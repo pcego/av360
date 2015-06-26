@@ -12,8 +12,8 @@
 	    <tbody>
 	{% for depart in departament_list %}
 	        <tr>
-	            <td>{{depart.description}}</td>
-	            <td>{{depart.phone}}</td>
+	            <td>{{depart.descricao}}</td>
+	            <td>{{depart.ramal}}</td>
 	            <td>
 	            		<a href="{% url 'url_departament_edit' depart.id %}">
 	            			<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

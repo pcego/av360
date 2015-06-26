@@ -5,4 +5,4 @@ from ava360.models import Departamento
 class DepartamentForm(ModelForm):
 	class Meta:
 		model = Departamento
-		fields = ['descricao', 'ramal']
+		fields = ['descricao', 'ramal', 'active']
