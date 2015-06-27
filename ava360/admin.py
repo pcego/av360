@@ -13,11 +13,10 @@ class DepartamentoAdmin(admin.ModelAdmin):
 	list_filter = ['id', 'descricao']
 	search_fields = ['id', 'descricao']
 
-class FuncionarioAdmin(admin.ModelAdmin):
-	list_display = ('nome', 'telefone', 'departamento', 'cargo', 'resp', 'ativo')
-	list_filter = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
-	search_fields = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
 
+class QuestionarioAdmin(admin.ModelAdmin):	
+	list_filter = ['titulo']
+	search_fields = ['titulo', 'data_criacao']
 
 
 
@@ -25,5 +24,5 @@ admin.site.register(Departamento, DepartamentoAdmin)
 admin.site.register(Funcionario, FuncionarioAdmin)
 admin.site.register(Cargo)
 admin.site.register(Questao)
-admin.site.register(Questionario)
+admin.site.register(Questionario, QuestionarioAdmin)
 admin.site.register(Alternativa)
