@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from ava360.models import Departamento
 from django.shortcuts import render, redirect, get_object_or_404
-from ava360.forms import DepartamentForm
+from ava360.forms import DepartamentForm, Questionario
 
 
 def departament_list(request):
@@ -33,3 +33,9 @@ def departament_delete(request, pk, template_name='ava360/confirm_delete.html'):
         departament.delete()
         return redirect('url_avaliacoes_departament')
     return render(request, template_name, {'object':departament})
+
+def questionario_form(request):
+    data = {}
+    data['questionario'] = Questionario.objects.all()
+    return render(request, 'ava360/questionario_view.html', data)
+    

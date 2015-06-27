@@ -17,4 +17,7 @@ urlpatterns = [
     url(r'^delete/(?P<pk>\d+)$',
         'ava360.views.departament_delete',
         name='url_departament_delete'),
+    
+    url(r'^questionario/$', 
+        'ava360.views.questionario_form', name='url_questionario'),
 ]

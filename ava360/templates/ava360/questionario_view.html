@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+	<body>
+	{% for depart in questionario %}
+	        
+	            <p>{{depart.titulo}}</p>          
+	      
+	{% endfor %}
+	  </body>
+	
+	<a href="#" class="btn btn-default">Novo</a>
+{% endblock %}
