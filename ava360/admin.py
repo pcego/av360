@@ -37,7 +37,7 @@ class QuestionarioAdmin(admin.ModelAdmin):
     inlines = (QuestionarioAdminLine,)
 
 class AvaliacaoAdmin(admin.ModelAdmin):   
-    list_filter = ['func_avaliado', 'data_avaliacao', ]
+    list_filter = ['func_avaliado', 'data_avaliacao']
     verbose_name_plural = 'Avaliações'
 
 admin.site.register(Departamento, DepartamentoAdmin)
