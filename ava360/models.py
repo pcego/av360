@@ -34,16 +34,22 @@ class Funcionario(models.Model):
 	def __str__(self):
 		return self.nome
 
+	class Meta:
+		verbose_name = 'Funcionário'
+
 class Questionario(models.Model):
 	
 	titulo = models.CharField(max_length=40)	
-	data_criacao = models.DateField(blank=False)
+	data_criacao = models.DateField(blank=False)	
+	funcionario = models.ManyToManyField(Funcionario, related_name='Avaliado')
 	ponto_forte = models.TextField(max_length=500, null=True, blank=True)
-	ponto_melhorar = models.TextField(max_length=500, null=True, blank=True)
-	funcionario = models.ManyToManyField(Funcionario, related_name='Avaliado')	
+	ponto_melhorar = models.TextField(max_length=500, null=True, blank=True)	
 
 	def __str__(self):
 		return self.titulo
+
+	class Meta:
+		verbose_name = 'Questionário'
 
 
 class Alternativa(models.Model):
@@ -63,4 +69,18 @@ class Questao(models.Model):
 		return self.texto
 
 	class Meta:
+		verbose_name = 'Questão'
 		verbose_name_plural = 'Questões'
+
+class Avaliacao(models.Model):
+	func_avaliado = models.ForeignKey(Funcionario)
+	func_avaliador = models.ForeignKey(Funcionario, related_name = 'avaliador')
+	questionario = models.ForeignKey(Questionario)
+	data_avaliacao = models.DateField()		
+
+	class Meta:
+		verbose_name = 'Avaliação'
+		verbose_name_plural = 'Avaliações'
+
+
+
