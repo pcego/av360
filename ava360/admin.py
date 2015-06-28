@@ -36,8 +36,7 @@ class QuestionarioAdmin(admin.ModelAdmin):
     search_fields = ['titulo', 'data_criacao']
     inlines = (QuestionarioAdminLine,)
 
-class AvaliacaoAdmin(admin.ModelAdmin):
-    list_display = ('func_avaliado', 'data_avaliacao',)
+class AvaliacaoAdmin(admin.ModelAdmin):   
     list_filter = ['func_avaliado', 'data_avaliacao', ]
     verbose_name_plural = 'Avaliações'
 
