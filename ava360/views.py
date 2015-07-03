@@ -35,9 +35,10 @@ def departament_delete(request, pk, template_name='ava360/confirm_delete.html'):
         return redirect('url_avaliacoes_departament')
     return render(request, template_name, {'object':departament})
 
+
 def questionario_form(request, pk):
     dados = {}
-    questionario = get_object_or_404(Questionario, pk=pk)
+    questionario = get_object_or_404(Questionario, pk=pk)    
     form = QuestionarioForm(instance=questionario)
     dados['form'] = form
     return render(request, 'ava360/questionario_form.html', dados)
