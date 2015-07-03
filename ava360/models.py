@@ -76,7 +76,8 @@ class Avaliacao(models.Model):
 	func_avaliado = models.ForeignKey(Funcionario)
 	func_avaliador = models.ForeignKey(Funcionario, related_name = 'avaliador')
 	questionario = models.ForeignKey(Questionario)
-	data_avaliacao = models.DateField()		
+	data_avaliacao = models.DateField()	
+	finalizada = models.BooleanField(default=False)	
 
 	class Meta:
 		verbose_name = 'Avaliação'

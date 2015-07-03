@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from ava360.models import Departamento, Questionario
+from ava360.models import Departamento
+from ava360.models import Questionario, Avaliacao
 
 
 class DepartamentForm(ModelForm):
@@ -10,4 +11,9 @@ class DepartamentForm(ModelForm):
 class QuestionarioForm(ModelForm):
 	class Meta:
 		model = Questionario
-		fields = ['titulo']
+		exclude = []
+
+class AvaliacaoForm(ModelForm):
+	class Meta:
+		model = Avaliacao
+		exclude = []

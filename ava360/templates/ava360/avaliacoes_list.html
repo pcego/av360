@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+	<table id="table_id" class="display">
+	    <thead>
+	        <tr>
+	            <th>Funcionário Avaliado</th>
+	            <th>Questionário</th>
+	            <th>Data Avaliação</th>
+	            <th>Avaliar</th>	            
+	        </tr>
+	    </thead>
+	    <tbody>
+	{% for ava in avaliacoes_list %}
+	        <tr>
+	            <td>{{ava.func_avaliado}}</td>
+	            <td>{{ava.questionario}}</td>
+	            <td>{{ava.data_avaliacao}}</td>
+	            <td>
+	            		<a href="{% url 'url_questionario' ava.questionario.id %}">
+	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+	            		</a>
+	            	</td>
+	        </tr>
+	{% endfor %}
+	    </tbody>
+	</table>
+
+	<a href="{% url 'url_departament_new' %}" class="btn btn-default">Novo</a>
+{% endblock %}

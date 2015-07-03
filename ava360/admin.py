@@ -4,15 +4,15 @@ from ava360.models import Funcionario, Cargo, Questao, Questionario, Avaliacao
 
 
 class FuncionarioAdmin(admin.ModelAdmin):
-	list_display = ('nome', 'telefone', 'departamento', 'cargo', 'resp', 'ativo')
-	list_filter = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
-	search_fields = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
+    list_display = ('nome', 'telefone', 'departamento', 'cargo', 'resp', 'ativo')
+    list_filter = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
+    search_fields = ['id', 'nome', 'cargo', 'responsavel', 'departamento']
 	#actions = ['seta_cliente_inativo', 'seta_cliente_ativo']
 
 class DepartamentoAdmin(admin.ModelAdmin):
-	list_display = ('descricao', 'ramal', 'active')
-	list_filter = ['id', 'descricao']
-	search_fields = ['id', 'descricao']
+    list_display = ('descricao', 'ramal', 'active')
+    list_filter = ['id', 'descricao']
+    search_fields = ['id', 'descricao']
 
 
 class QuestaoAdminLine(admin.TabularInline):
