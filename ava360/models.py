@@ -59,7 +59,6 @@ class Alternativa(models.Model):
 	def __str__(self):
 		return self.texto
 
-
 class Questao(models.Model):
 	texto = models.CharField(max_length=500)
 	questionario = models.ManyToManyField(Questionario)
@@ -82,6 +81,3 @@ class Avaliacao(models.Model):
 	class Meta:
 		verbose_name = 'Avaliação'
 		verbose_name_plural = 'Avaliações'
-
-
-

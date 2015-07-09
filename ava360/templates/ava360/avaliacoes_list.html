@@ -2,11 +2,13 @@
 
 {% block main %}
 	<table id="table_id" class="display">
+		{{request.user.}}
 	    <thead>
 	        <tr>
 	            <th>Funcionário Avaliado</th>
 	            <th>Questionário</th>
 	            <th>Data Avaliação</th>
+	            <th>Status</th>
 	            <th>Avaliar</th>	            
 	        </tr>
 	    </thead>
@@ -16,6 +18,7 @@
 	            <td>{{ava.func_avaliado}}</td>
 	            <td>{{ava.questionario}}</td>
 	            <td>{{ava.data_avaliacao}}</td>
+	            <td>{% if ava.finalizada == False %}Aberta{% endif %}</td>
 	            <td>
 	            		<a href="{% url 'url_questionario' ava.questionario.id %}">
 	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>

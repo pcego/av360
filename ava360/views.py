@@ -44,6 +44,7 @@ def questionario_form(request, pk):
     return render(request, 'ava360/questionario_form.html', dados)
     
 def avaliacoes_list(request):
-    ava = {}
-    ava['avaliacoes_list'] = Avaliacao.objects.all()
+    ava = {}    
+    ava['avaliacoes_list'] = Avaliacao.objects.filter(func_avaliador = request.user.id)
+    #ava['avaliacoes_list'] = Avaliacao.objects.all()
     return render(request, 'ava360/avaliacoes_list.html', ava)
