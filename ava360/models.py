@@ -61,8 +61,8 @@ class Alternativa(models.Model):
 
 class Questao(models.Model):
 	texto = models.CharField(max_length=500)
-	questionario = models.ManyToManyField(Questionario)
-	alternativa = models.ManyToManyField(Alternativa)	
+	questionario = models.ManyToManyField(Questionario, related_name = 'questionario_questao')
+	alternativa = models.ManyToManyField(Alternativa, related_name = 'alternativa_questao')	
 
 	def __str__(self):
 		return self.texto
@@ -88,11 +88,8 @@ class Resposta(models.Model):
 	resposta = models.ForeignKey(Alternativa, blank=True, null=True)
 
 	def __str__(self):
-		#return 'Teste: ' + self.rating.description +\
-		#' - ' + 'Avaliado: ' + self.rating.employee_rated.user.username +\
-		#' - ' + 'Question: ' + self.question.description +\
-		#' - ' + 'Status: ' + str(self.answered)
+		return 'Status: ' + str(self.answered)
 
 		@property
 		def respondida(self):
-			return 'Pendente' if not self.resposta else 'Respondida'
+			return 'Aberta' if not self.resposta else 'Respondida'

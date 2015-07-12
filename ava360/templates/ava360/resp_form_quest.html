@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
 
-
 {% block main %}
-    
-    <form method="post">
-        {% csrf_token %}    
-        {{ form|bootstrap}}    
-        <button class="btn btn-default" type="submit">Enviar</button>
+    <h3>Questão</h3>
+    <form method="POST">
+    	{%csrf_token%}
+    	{{form|bootstrap}}
+    	<button type='submit'>Responder</button>
     </form>
-
 {% endblock%}

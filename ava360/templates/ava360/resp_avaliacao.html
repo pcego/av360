@@ -12,11 +12,12 @@
 	    </thead>
 	    <tbody>
 	{% for questao in questoes %}
+		
 	        <tr>
 	            <td>{{questao.texto}}</td>	            
 	            <td>Aberta</td>
 	            <td>
-	            		<a href="">
+	            		<a href="{% url 'url_questao_resp' questao.id %}">
 	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 	            		</a>
 	            	</td>
