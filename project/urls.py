@@ -10,13 +10,7 @@ urlpatterns = [
             {'template_name': 'index.html'}, name='url_login'),
 
     url(r'^avaliacoes/', include('ava360.urls')),
-
-    url(r'^register/', CreateView.as_view(
-            template_name='registration/register.html',
-            form_class=UserCreationForm,
-            success_url='/',
-    ), name='register',),
-    
+       
     url(r'^accounts/', include('django.contrib.auth.urls')),
 
     url(r'^logout/$', 'django.contrib.auth.views.logout',

@@ -5,11 +5,6 @@ from ava360.models import Questionario, Avaliacao, Questao, Alternativa, Respost
 from django import forms
 
 
-class DepartamentForm(ModelForm):
-	class Meta:
-		model = Departamento
-		fields = ['descricao', 'ramal', 'active']
-
 class QuestionarioForm(ModelForm):
 	class Meta:
 		model = Questionario
