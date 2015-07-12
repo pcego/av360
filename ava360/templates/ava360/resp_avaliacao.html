@@ -1,10 +1,29 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
 
 {% block main %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form|bootstrap}}
-        <button class="btn btn-default" type="submit">Enviar Respostas</button>
-    </form>
-{% endblock%}
+	<table id="table_id" class="display">
+		
+	    <thead>
+	        <tr>
+	            <th>Questões</th>	           
+	            <th>Status</th>
+	            <th>Responder</th>	            
+	        </tr>
+	    </thead>
+	    <tbody>
+	{% for questao in questoes %}
+	        <tr>
+	            <td>{{questao.texto}}</td>	            
+	            <td>Aberta</td>
+	            <td>
+	            		<a href="">
+	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+	            		</a>
+	            	</td>
+	        </tr>
+	{% endfor %}
+	    </tbody>
+	</table>	
+{% endblock %}
+
+#{% url 'url_questao_resp' ava.questionario.id ava.questao.id %}

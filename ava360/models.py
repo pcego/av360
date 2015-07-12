@@ -81,3 +81,18 @@ class Avaliacao(models.Model):
 	class Meta:
 		verbose_name = 'Avaliação'
 		verbose_name_plural = 'Avaliações'
+
+class Resposta(models.Model):
+	avaliacao = models.ForeignKey(Avaliacao)
+	questao = models.ForeignKey(Questao)
+	resposta = models.ForeignKey(Alternativa, blank=True, null=True)
+
+	def __str__(self):
+		#return 'Teste: ' + self.rating.description +\
+		#' - ' + 'Avaliado: ' + self.rating.employee_rated.user.username +\
+		#' - ' + 'Question: ' + self.question.description +\
+		#' - ' + 'Status: ' + str(self.answered)
+
+		@property
+		def respondida(self):
+			return 'Pendente' if not self.resposta else 'Respondida'

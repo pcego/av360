@@ -2,7 +2,7 @@
 
 {% block main %}
 	<table id="table_id" class="display">
-		{{request.user.}}
+		
 	    <thead>
 	        <tr>
 	            <th>Funcionário Avaliado</th>
@@ -20,14 +20,14 @@
 	            <td>{{ava.data_avaliacao}}</td>
 	            <td>{% if ava.finalizada == False %}Aberta{% endif %}</td>
 	            <td>
-	            		<a href="{% url 'url_questionario' ava.questionario.id %}">
+	            		<a href="{% url 'url_responder' ava.questionario.id %}">
 	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 	            		</a>
 	            	</td>
 	        </tr>
 	{% endfor %}
 	    </tbody>
-	</table>
-
-	<a href="{% url 'url_departament_new' %}" class="btn btn-default">Novo</a>
+	</table>	
 {% endblock %}
+
+#{% url 'url_questao_resp' ava.questionario.id ava.questao.id %}
