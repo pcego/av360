@@ -31,14 +31,13 @@ def responder_avaliacao(request, pk_questao):
         form = QuestaoForm(instance=questao)
 
         dados['form'] = form
-
         return render(request, 'ava360/resp_form_quest.html', dados)
     
     else:
         form = QuestaoForm(request.POST or None, instance=questao)
         if form.is_valid():
             form.save()
-            return redirect('url_questao_resp')
+            return redirect('url_responder')
         else:
             dados['form'] = form
             return render(request, 'ava360/resp_form_quest.html', dados)

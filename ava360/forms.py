@@ -28,9 +28,10 @@ class QuestaoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(QuestaoForm, self).__init__(*args, **kwargs)
-        if self.instance and self.instance.pk:
+        if self.instance and self.instance.pk:            
             self.fields['alternativa'].queryset = Questao.objects.get(
                 pk=self.instance.pk).alternativa.all()
+            self.fields['texto'].widget.attrs['readonly'] = True
 
 class RespostaForm(forms.ModelForm):
     class Meta:
