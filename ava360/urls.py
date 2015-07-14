@@ -12,6 +12,8 @@ urlpatterns = [
         name='url_responder'),
 
      url(r'^questao_resp/(?P<pk_questao>\d+)/$',
-        'ava360.views.responder_avaliacao',
+        'ava360.views.responder_questao',
         name='url_questao_resp'),
 ]
+
+#responder_avaliacao

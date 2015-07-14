@@ -70,6 +70,7 @@ class Questao(models.Model):
 		verbose_name_plural = 'Questões'
 
 class Avaliacao(models.Model):
+	titulo = models.CharField(max_length=100, blank=True, null=True)
 	func_avaliado = models.ForeignKey(Funcionario)
 	func_avaliador = models.ForeignKey(Funcionario, related_name = 'avaliador')
 	questionario = models.ForeignKey(Questionario)
@@ -79,6 +80,9 @@ class Avaliacao(models.Model):
 	class Meta:
 		verbose_name = 'Avaliação'
 		verbose_name_plural = 'Avaliações'
+
+	def __str__(self):
+		return self.questionario.titulo
 
 class Resposta(models.Model):
 	avaliacao = models.ForeignKey(Avaliacao)

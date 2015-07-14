@@ -40,9 +40,10 @@ class RespostaForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RespostaForm, self).__init__(*args, **kwargs)
-
-        self.fields['respondida'].widget = forms.RadioSelect()
-        self.fields['respondida'].empty_label=None
-
-        self.fields['respondida'].queryset = Resposta.objects.get(
-           pk=self.instance.pk).questao.alternativa.all()
+        if self.instance and self.instance.pk:
+            self.fields['resposta'].widget = forms.RadioSelect()
+            self.fields['resposta'].empty_label=None
+            self.fields['resposta'].queryset = Resposta.objects.get(
+                pk=self.instance.pk).questao.alternativa.all()
+            self.fields['avaliacao'].widget.attrs['readonly'] = True
+            self.fields['questao'].widget.attrs['readonly'] = True
