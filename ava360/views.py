@@ -7,20 +7,22 @@ from ava360.forms import AvaliacaoForm, QuestionarioForm, QuestaoForm, RespostaF
 
 def responder_questao(request, pk_questao):
     dados = {}
-    resposta = get_object_or_404(Resposta, questao = pk_questao)
+    resposta = get_object_or_404(Resposta, pk = pk_questao)
     form = RespostaForm(request.POST or None, instance=resposta)
 
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('url_responder', pk_questao)
+            return redirect('url_responder', 8)
 
     dados['form'] = form
     return render(request, 'ava360/resp_form_quest.html', dados)
     
 def avaliacoes_list(request):
     ava = {}    
-    ava['avaliacoes_list'] = Avaliacao.objects.filter(func_avaliador = request.user.id)    
+    ava['avaliacoes_list'] = Resposta.objects.filter(
+        avaliacao__func_avaliador = request.user.id, resposta__isnull=True).distinct('avaliacao')
+   #Resposta.objects.filter(func_avaliador = request.user.id)    
     return render(request, 'ava360/avaliacoes_list.html', ava)
 
 def responder_avaliacao(request, pk_questao):
@@ -43,7 +45,16 @@ def responder_avaliacao(request, pk_questao):
             return render(request, 'ava360/resp_form_quest.html', dados)
 
 
-def responder(request, pk_questionario):
-    dados = {}        
-    dados['questoes'] = Questao.objects.filter(questionario = pk_questionario)
-    return render(request, 'ava360/resp_avaliacao.html', dados)
+def responder(request, pk_avaliacao):
+    dados = {}
+    avaliacao = get_object_or_404(Avaliacao, pk=pk_avaliacao)
+    resposta = Resposta.objects.filter(avaliacao__func_avaliador = request.user.id,
+        avaliacao = avaliacao, resposta__isnull=True)
+    
+    if resposta:
+        dados['form'] = RespostaForm(instance=avaliacao)
+        dados['questoes'] = resposta
+        return render(request, 'ava360/resp_avaliacao.html', dados)
+    else:
+        return redirect('url_responder', pk_avaliacao)
+    

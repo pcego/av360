@@ -36,7 +36,7 @@ class QuestaoForm(forms.ModelForm):
 class RespostaForm(forms.ModelForm):
     class Meta:
         model = Resposta
-        fields = ('avaliacao', 'questao','resposta')
+        fields = ('avaliacao', 'questao', 'resposta')
 
     def __init__(self, *args, **kwargs):
         super(RespostaForm, self).__init__(*args, **kwargs)

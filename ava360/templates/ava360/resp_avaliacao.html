@@ -14,8 +14,8 @@
 	{% for questao in questoes %}
 		
 	        <tr>
-	            <td>{{questao.texto}}</td>	            
-	            <td>Aberta</td>
+	            <td>{{questao.questao}}</td>	            
+	            <td>{% if questao.avaliacao.finalizada == False %}Aberta{% endif %}</td>
 	            <td>
 	            		<a href="{% url 'url_questao_resp' questao.id %}">
 	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>

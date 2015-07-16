@@ -7,7 +7,7 @@ urlpatterns = [
         'ava360.views.avaliacoes_list', 
         name='url_avaliacoes_pendentes'),
 
-    url(r'^resposta/(?P<pk_questionario>\d+)/$',
+    url(r'^resposta/(?P<pk_avaliacao>\d+)/$',
         'ava360.views.responder',
         name='url_responder'),
 

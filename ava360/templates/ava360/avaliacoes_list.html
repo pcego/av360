@@ -15,12 +15,12 @@
 	    <tbody>
 	{% for ava in avaliacoes_list %}
 	        <tr>
-	            <td>{{ava.func_avaliado}}</td>
-	            <td>{{ava.questionario}}</td>
-	            <td>{{ava.data_avaliacao}}</td>
-	            <td>{% if ava.finalizada == False %}Aberta{% endif %}</td>
+	            <td>{{ava.avaliacao.func_avaliado}}</td>
+	            <td>{{ava.avaliacao.questionario}}</td>
+	            <td>{{ava.avaliacao.data_avaliacao}}</td>
+	            <td>{% if ava.avaliacao.finalizada == False %}Aberta{% endif %}</td>
 	            <td>
-	            		<a href="{% url 'url_responder' ava.questionario.id %}">
+	            		<a href="{% url 'url_responder' ava.avaliacao.id %}">
 	            			<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 	            		</a>
 	            	</td>

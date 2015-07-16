@@ -37,19 +37,6 @@ class Funcionario(models.Model):
 	class Meta:
 		verbose_name = 'Funcionário'
 
-class Questionario(models.Model):
-	
-	titulo = models.CharField(max_length=40)	
-	data_criacao = models.DateField(blank=False)	
-	funcionario = models.ManyToManyField(Funcionario, related_name='Avaliado')
-	
-	def __str__(self):
-		return self.titulo
-
-	class Meta:
-		verbose_name = 'Questionário'
-
-
 class Alternativa(models.Model):
 	
 	texto = models.CharField(max_length=100)
@@ -58,8 +45,7 @@ class Alternativa(models.Model):
 		return self.texto
 
 class Questao(models.Model):
-	texto = models.CharField(max_length=500)
-	questionario = models.ManyToManyField(Questionario, related_name = 'questionario_questao')
+	texto = models.CharField(max_length=500)	
 	alternativa = models.ManyToManyField(Alternativa, related_name = 'alternativa_questao')	
 
 	def __str__(self):
@@ -68,6 +54,19 @@ class Questao(models.Model):
 	class Meta:
 		verbose_name = 'Questão'
 		verbose_name_plural = 'Questões'
+
+class Questionario(models.Model):
+	
+	titulo = models.CharField(max_length=40)	
+	data_criacao = models.DateField(blank=False)	
+	funcionario = models.ManyToManyField(Funcionario, related_name='Avaliado')
+	questao = models.ManyToManyField(Questao, related_name = 'questionario_questao')
+	
+	def __str__(self):
+		return self.titulo
+
+	class Meta:
+		verbose_name = 'Questionário'
 
 class Avaliacao(models.Model):
 	titulo = models.CharField(max_length=100, blank=True, null=True)
@@ -90,7 +89,7 @@ class Resposta(models.Model):
 	resposta = models.ForeignKey(Alternativa, blank=True, null=True)
 
 	def __str__(self):
-		return 'Status: ' + str(self.respondida)
+		return self.avaliacao.titulo
 
 		@property
 		def respondida(self):
