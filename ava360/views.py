@@ -13,7 +13,7 @@ def responder_questao(request, pk_questao):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('url_responder', 8)
+            return redirect('url_responder', resposta.avaliacao.id)
 
     dados['form'] = form
     return render(request, 'ava360/resp_form_quest.html', dados)
