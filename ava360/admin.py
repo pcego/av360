@@ -46,10 +46,10 @@ class AvaliacaoAdmin(admin.ModelAdmin):
 
 class RespostaAdmin(admin.ModelAdmin):
     model = Resposta
-    list_display = ('avaliacao', 'questao', 'have_answer', 'employee_valuer')
+    list_display = ('avaliacao', 'questao', 'status_resposta')
 
-    def possui_resposta(self, obj):
-        return 'Pendente' if obj.reposta == None else 'Respondida'
+    def status_resposta(self, obj):
+        return 'Pendente' if obj.resposta == None else 'Respondida'
 
 admin.site.register(Departamento, DepartamentoAdmin)
 admin.site.register(Funcionario, FuncionarioAdmin)
@@ -57,5 +57,5 @@ admin.site.register(Cargo)
 admin.site.register(Questao, QuestaoAdmin)
 admin.site.register(Questionario, QuestionarioAdmin)
 admin.site.register(Alternativa)
-admin.site.register(Resposta)
+admin.site.register(Resposta, RespostaAdmin)
 admin.site.register(Avaliacao, AvaliacaoAdmin)

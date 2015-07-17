@@ -13,8 +13,8 @@ def responder_questao(request, pk_questao):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('url_responder', resposta.avaliacao.id)
-
+            return responder(request, resposta.avaliacao.id)
+            
     dados['form'] = form
     return render(request, 'ava360/resp_form_quest.html', dados)
     
@@ -22,8 +22,12 @@ def avaliacoes_list(request):
     ava = {}    
     ava['avaliacoes_list'] = Resposta.objects.filter(
         avaliacao__func_avaliador = request.user.id, resposta__isnull=True).distinct('avaliacao')
-   #Resposta.objects.filter(func_avaliador = request.user.id)    
-    return render(request, 'ava360/avaliacoes_list.html', ava)
+    
+    if ava['avaliacoes_list'].__len__() > 0:       
+        return render(request, 'ava360/avaliacoes_list.html', ava)
+    
+    else:
+        return render(request, 'ava360/aviso.html')
 
 def responder_avaliacao(request, pk_questao):
     dados = {}        
@@ -56,5 +60,6 @@ def responder(request, pk_avaliacao):
         dados['questoes'] = resposta
         return render(request, 'ava360/resp_avaliacao.html', dados)
     else:
-        return redirect('url_responder', pk_avaliacao)
+        return redirect('url_avaliacoes_pendentes')
+        
     
