@@ -15,5 +15,3 @@ urlpatterns = [
         'ava360.views.responder_questao',
         name='url_questao_resp'),
 ]
-
-#responder_avaliacao
