@@ -14,4 +14,8 @@ urlpatterns = [
      url(r'^questao_resp/(?P<pk_questao>\d+)/$',
         'ava360.views.responder_questao',
         name='url_questao_resp'),
+
+     url(r'^relatorio/$',
+        'ava360.views.relatorios',
+        name='url_relatorios'),
 ]

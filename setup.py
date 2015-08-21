@@ -6,4 +6,5 @@ setup(name='sad360',
     author='pcego',
     author_email='pcego36@gmail.com',
     url='https://github.com/pcego/av360',
+    install_require=['Django==1.8.2',],	
 )

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+	<table id="table_id" class="display">
+	    <thead>
+	        <tr>
+	            <th>Descrição Avaliação</th>
+	             <th>Avaliador</th>	            
+	            <th>Data Avaliação</th>	            
+	            <th>Avaliação</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	{% for resposta in respostas %}
+	        <tr>
+	            <td>{{resposta.avaliacao.titulo}}</td>	            
+	            <td>{{resposta.avaliacao.func_avaliador}}</td>	            
+	            <td>{{resposta.avaliacao.data_avaliacao}}</td>
+	            <td></td>
+	        </tr>
+	{% endfor %}
+	    </tbody>
+	</table>
+
+{% endblock %}
