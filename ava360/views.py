@@ -27,7 +27,7 @@ def avaliacoes_list(request):
         return render(request, 'ava360/avaliacoes_list.html', ava)
     
     else:
-        return render(request, 'ava360/alerta.html')
+        return render(request, 'ava360/aviso.html')
 
 def responder_avaliacao(request, pk_questao):
     dados = {}        

@@ -1,9 +1,13 @@
-<html>
-<head>
-	<title>teste</title>
-</head>
-<body>
-	<h1>vc não tem mais avaliações</h1>
-	<a href="{% url 'url_dashborard' %}">Home</a>
-</body>
-</html>
+{% extends 'base_main.html' %}
+{% load bootstrap %}
+
+{% block main %}
+<div class="alert alert-success" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Você Não Possui Avaliações Pendentes!!</strong>
+  <div>
+  <br>	
+  <a href="{% url 'url_dashborard' %}">Voltar</a>
+</div>
+</div>
+{% endblock %}
