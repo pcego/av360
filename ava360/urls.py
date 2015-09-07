@@ -18,4 +18,8 @@ urlpatterns = [
      url(r'^relatorio/$',
         'ava360.views.relatorios',
         name='url_relatorios'),
+
+      url(r'^relatorio/gerente$',
+        'ava360.views.relatorio_gerente',
+        name='url_relatorio_gerente'),
 ]

@@ -68,12 +68,22 @@ def relatorios(request):
     resposta = Resposta.objects.filter(
        avaliacao__func_avaliado = request.user.id, resposta__isnull=False)
     rel['respostas'] = resposta
-    return render(request, 'ava360/relatorio_desempenho.html', rel)
+
+    if rel['respostas'].__len__() > 0:
+        return render(request, 'ava360/relatorio_desempenho.html', rel)
+
+    else:
+        return render(request, 'ava360/aviso_rel.html')
 
 @login_required
 def relatorio_gerente(request):
     rel = {}
-    reposta = Resposta.objects.filter(
-       avaliacao__func_avaliado__resp__user = request.user, resposta__isnull=False)
-    rel['repostas'] = resposta
-    return render(request, 'ava360/relatorio_gerente.html', rel)
+    resposta = Resposta.objects.filter(
+       avaliacao__func_avaliado__resp = request.user.id, resposta__isnull=False)
+    rel['respostas'] = resposta
+
+    if rel['respostas'].__len__() > 0:
+        return render(request, 'ava360/relatorio_gerente.html', rel)
+
+    else:
+        return render(request, 'ava360/aviso_rel.html')

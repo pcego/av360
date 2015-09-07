@@ -1,18 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base_main.html' %}
 {% load bootstrap %}
 
 {% block main %}
-	
-<section id="main">
-  
-  <div class="row-fluid">
-    <div class="span12">
-	    <h1>Avaliação 360</h1>    
-	    <h2>Logout</h2>
-	    <h3>Até breve...</h3>
-	    <a type="button"  href="{% url 'url_login' %}" class="btn btn-success">Acessar</a>
-    </div>
-  </div>
-
-
+<div class="alert alert-success" role="alert">  
+  <h1>Obrigado! e Volte Sempre</h1>
+  <div>
+  <br>	
+  <h2><a href="{% url 'url_login' %}">Sair</a></h2>
+</div>
+</div>
 {% endblock %}

@@ -121,7 +121,7 @@ else:
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',  
                 'NAME':     'ava360',
                 'USER':     'postgres',
-                'PASSWORD': 'pcego',
+                'PASSWORD': 'senha',
                 'HOST':     'localhost',
                 'PORT':     5432,
             }

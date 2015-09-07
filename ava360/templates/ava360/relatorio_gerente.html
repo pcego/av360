@@ -5,7 +5,7 @@
 	    <thead>
 	        <tr>
 	            <th>Questão</th>
-	             <th>Avaliador</th>	            
+	             <th>Funcionário Avaliado</th>	            
 	            <th>Data Avaliação</th>	            
 	            <th>Resposta</th>
 	        </tr>
@@ -14,7 +14,7 @@
 	{% for resposta in respostas %}
 	        <tr>
 	            <td>{{resposta.questao}}</td>	            
-	            <td>{{resposta.avaliacao.func_avaliador}}</td>	            
+	            <td>{{resposta.avaliacao.func_avaliado}}</td>	            
 	            <td>{{resposta.avaliacao.data_avaliacao}}</td>	                     
 	            <td>{{resposta.resposta}}</td>	                     
 	        </tr>
